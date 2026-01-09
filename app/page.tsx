@@ -81,6 +81,7 @@ const NodeCard = ({
 
     const isOnline = info?.isNodelink === true
     const currentHost = showSSL && config.sslHost ? config.sslHost.host : config.host
+    const currentPort = showSSL && config.sslHost ? config.sslHost.port : config.port
     const currentSecure = showSSL && config.sslHost ? true : config.secure
 
     const formatUptime = (ms: number) => {
@@ -155,8 +156,8 @@ const NodeCard = ({
                 <div className="flex items-center justify-between">
                     <span className="text-stone-600">Port</span>
                     <div className="flex items-center gap-2">
-                        <span className="text-stone-300">{config.port}</span>
-                        <CopyButton text={config.port} />
+                        <span className="text-stone-300">{currentPort}</span>
+                        <CopyButton text={String(currentPort)} />
                     </div>
                 </div>
                 <div className="flex items-center justify-between">
@@ -413,7 +414,9 @@ function FreeNodeLinkContent() {
                         port: String(node.port || "3000"),
                         password: node.password || "",
                         secure: node.secure || false,
-                        sslHost: node.sslHost || node.ssl_host || undefined,
+                        sslHost: typeof node.sslHost === 'string'
+                            ? { host: node.sslHost, port: 443 }
+                            : (node.sslHost || node.ssl_host || undefined),
                         author: node.author
                             ? {
                                 name: node.author.name || node.author,
