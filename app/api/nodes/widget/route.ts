@@ -128,7 +128,7 @@ export async function GET(request: Request) {
     const protocol = node.sslHost ? "https" : "http"
     const host = sslHostStr || node.host
     const port = node.sslHost ? sslPort : node.port
-    const baseUrl = `${protocol}://${host}:${port}`
+    const baseUrl = `${protocol}://${host}${protocol === "https" && Number(port) === 443 ? "" : `:${port}`}`
 
     // Fetch live stats
     const stats = await getLiveStats(baseUrl, node.password)

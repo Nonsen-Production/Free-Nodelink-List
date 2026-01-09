@@ -471,7 +471,9 @@ function FreeNodeLinkContent() {
 
         try {
             // Determine the base URL: prefer sslHost (https), fallback to standard host:port (http)
-            const baseUrl = node.sslHost ? `https://${node.sslHost.host}:${node.sslHost.port}` : `http://${node.host}:${node.port}`
+            const baseUrl = node.sslHost
+                ? `https://${node.sslHost.host}${Number(node.sslHost.port) === 443 ? "" : `:${node.sslHost.port}`}`
+                : `http://${node.host}:${node.port}`
 
             const apiUrl = `/api/nodelink?url=${encodeURIComponent(baseUrl)}&password=${encodeURIComponent(node.password)}&t=${new Date().getTime()}`
 
