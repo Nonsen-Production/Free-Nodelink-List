@@ -19,10 +19,11 @@ export async function GET(request: Request) {
             fetch(`${url}/v4/info`, {
                 headers: {
                     Authorization: password,
-                    "User-Agent": "Free-Nodelink: (By Nyxbot.app)",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
                     "Content-Type": "application/json",
                     "Accept": "*/*",
-                    "Accept-Language": "*"
+                    "Accept-Language": "*",
+                    "Accept-Encoding": "gzip,br"
                 },
                 signal: AbortSignal.timeout(5000), // 5 second timeout
             }).catch((e) => {
@@ -33,10 +34,11 @@ export async function GET(request: Request) {
             fetch(`${url}/v4/stats`, {
                 headers: {
                     Authorization: password,
-                    "User-Agent": "Free-Nodelink: (By Nyxbot.app)",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
                     "Content-Type": "application/json",
                     "Accept": "*/*",
-                    "Accept-Language": "*"
+                    "Accept-Language": "*",
+                    "Accept-Encoding": "gzip,br"
                 },
                 signal: AbortSignal.timeout(5000),
             }).catch((e) => {
