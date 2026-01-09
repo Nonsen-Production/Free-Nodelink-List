@@ -2,32 +2,32 @@
 
 ## What is Free NodeLink?
 
-Free NodeLink is a curated, premium-quality public directory of Lavalink nodes designed for developers who need reliable, high-performance audio infrastructure for bots and audio-enabled applications. Instead of hunting for unstable or outdated nodes, Free NodeLink centralizes trusted public nodes that prioritize uptime, low latency, and consistent audio quality.
+Free NodeLink is a curated, premium-quality public directory of Lavalink nodes built for developers who need reliable, high-performance audio infrastructure for bots and audio-enabled applications. Instead of spending time testing unstable or abandoned public nodes, Free NodeLink centralizes trusted nodes that prioritize uptime, low latency, and consistent audio quality.
 
-This project exists to reduce setup friction, improve user experience, and provide a dependable backbone for music and audio streaming applications across different regions.
+The project aims to reduce setup friction, improve long-term reliability, and provide a dependable backbone for music and audio streaming applications operating across different regions and platforms.
 
 ---
 
 ## Global Audio Infrastructure
 
-Free NodeLink operates as a global audio infrastructure layer by maintaining and publishing a list of publicly accessible Lavalink nodes distributed across multiple regions. Each listed node is expected to meet baseline performance and stability standards, making them suitable for production use.
+Free NodeLink functions as a global audio infrastructure layer by maintaining and publishing a list of publicly accessible Lavalink nodes distributed across multiple geographic regions. Each listed node is expected to meet baseline performance, availability, and stability standards, making them suitable for real-world and production-level usage.
 
-Key goals of the infrastructure include:
+Key infrastructure goals include:
 
-* High availability and stable connections
-* Low-latency audio streaming
-* Regional coverage to reduce network delay
-* Consistent performance under load
+* High availability with stable and predictable connections
+* Low-latency audio streaming for smoother playback
+* Regional distribution to minimize network delay
+* Consistent performance under sustained load
 
-Developers can freely choose the node that best fits their geographic location or application needs.
+Developers can freely select the node that best matches their geographic location, latency requirements, or redundancy strategy.
 
 ---
 
 ## Live Status Widget
 
-Free NodeLink provides a live status widget that allows developers to display real-time node information directly on their website, README files, or documentation. This widget reflects the current availability and status of a selected node, helping users quickly assess reliability.
+Free NodeLink provides a live status widget that allows developers to display real-time node information directly on their website, README files, or project documentation. The widget visually reflects the current availability and operational status of a selected node, enabling quick reliability checks without manual monitoring.
 
-The widget is automatically generated and updated, requiring no additional setup beyond embedding the provided URL.
+Widgets are automatically generated and continuously updated, requiring no additional setup beyond embedding the provided URL.
 
 ### Widget Usage
 
@@ -37,7 +37,7 @@ To generate a widget for a specific node, use the following URL format:
 http://free-nodelink.nyxbot.app/api/nodes/widget?host=<NODE_HOST>
 ```
 
-Replace `<NODE_HOST>` with the hostname of the node you want to display.
+Replace `<NODE_HOST>` with the hostname of the Lavalink node you want to display.
 
 ### Example
 
@@ -45,36 +45,40 @@ Replace `<NODE_HOST>` with the hostname of the node you want to display.
 http://free-nodelink.nyxbot.app/api/nodes/widget?host=sg1-nodelink.nyxbot.app
 ```
 
-You can embed the widget in Markdown as shown below:
+Embed the widget in Markdown as shown below:
 
 ```markdown
 ![Node Widget](http://free-nodelink.nyxbot.app/api/nodes/widget?host=sg1-nodelink.nyxbot.app)
 ```
+
 ![Node Widget](http://free-nodelink.nyxbot.app/api/nodes/widget?host=sg1-nodelink.nyxbot.app)
 
-A general widget showing the overall node list status is also available:
+A general widget showing the overall status of the public node list is also available:
 
-```
+```markdown
 ![Widget](http://free-nodelink.nyxbot.app/api/nodes/widget)
 ```
+
 ![Widget](http://free-nodelink.nyxbot.app/api/nodes/widget)
 
-To view the complete list of available nodes, visit:
+To view the complete and up-to-date list of available nodes, visit:
 
 [Free NodeLink](http://free-nodelink.nyxbot.app)
 
-### Custom Widget
+---
 
-You can also use this widget **even if your node is not listed** on our site!
+## Custom Widget (External Nodes Supported)
 
-Simply provide your node details via query parameters:
+The status widget can also be used for **any Lavalink node**, even if it is not listed on Free NodeLink. This allows node operators to monitor and showcase their own infrastructure using the same widget system.
 
-- `host` (Required): Your node hostname/IP
-- `port`: Your node port (default: 2333)
-- `password`: Your node password (default: youshallnotpass)
-- `secure`: Set to `true` for SSL/HTTPS connection (default: false)
+Simply provide your node configuration using query parameters:
 
-#### Custom Widget Example
+* `host` (Required): Node hostname or IP address
+* `port`: Node port (default: `2333`)
+* `password`: Node password (default: `youshallnotpass`)
+* `secure`: Set to `true` to enable SSL/HTTPS (default: `false`)
+
+### Custom Widget Example
 
 ```markdown
 ![My Custom Node](http://free-nodelink.nyxbot.app/api/nodes/widget?host=my-cool-node.com&port=443&secure=true&password=mypassword)
@@ -84,29 +88,32 @@ Simply provide your node details via query parameters:
 
 ## How to Add Your Node to Free NodeLink
 
-Community contributions are welcome. If you operate a public Lavalink node and want it listed on Free NodeLink, follow the guidelines below to ensure fairness and consistency.
+Community contributions are encouraged. If you operate a public Lavalink node and want it listed on Free NodeLink, follow the guidelines below to ensure consistency, fairness, and long-term maintainability.
 
 ### Contribution Steps
 
-1. Fork the repository and update the `nodelink.json` file with your node’s information.
+1. Fork the repository and update the `nodelink.json` file with your node information.
 2. Submit your changes through a Pull Request.
-3. Do not modify or overwrite existing node entries.
-4. Always append your node entry to the bottom of the list to preserve ordering and history.
+3. Do not modify, reorder, or overwrite existing node entries.
+4. Always append your node entry to the **bottom** of the list.
 
-All submitted nodes may be reviewed to ensure they meet basic quality and availability standards.
+Submitted nodes may be reviewed to ensure they meet basic availability, stability, and usage requirements.
 
-Example node entry:
+### Example Node Entry
+
 ```
 {
     "title": "Singapore Node 1",
-    "host": "sg1-nodelink.nyxbot.app", // Always no SSL Host, If you having both SSL and Non-SSL Host
+    "host": "sg1-nodelink.nyxbot.app",
+    // Always use a non-SSL host here if you provide both SSL and non-SSL endpoints
     "port": "3000",
     "password": "nyxbot.app/support",
     "secure": false,
     "sslHost": {
         "host": "sg1-nodelink-ssl.nyxbot.app",
         "port": 443
-    }, // Optional put null if you don't have SSL Host
+    },
+    // Optional. Set to null if you do not provide an SSL endpoint
     "author": {
         "name": "NYX Project",
         "website": "https://nyxbot.app"
@@ -114,8 +121,13 @@ Example node entry:
 }
 ```
 
-## Host your own NodeLink
-Plese check the [Nodelink](https://nodelink.js.org) section for more information.
+---
+
+## Host Your Own NodeLink
+
+If you want to deploy and manage your own NodeLink infrastructure, refer to the official NodeLink documentation for setup instructions, configuration options, and best practices:
+
+[NodeLink Documentation](https://nodelink.js.org)
 
 ---
 
@@ -123,4 +135,4 @@ Plese check the [Nodelink](https://nodelink.js.org) section for more information
 
 Free NodeLink is released under the MIT License. You are free to use, modify, and distribute this project in accordance with the license terms.
 
-For more details, see the [LICENSE](LICENSE) file.
+For full license details, see the [LICENSE](LICENSE) file.
