@@ -402,7 +402,7 @@ function FreeNodeLinkContent() {
         const fetchNodes = async () => {
             try {
                 setNodesLoading(true)
-                const res = await fetch("/api/nodes")
+                const res = await fetch("/api/nodes?t=" + new Date().getTime())
                 if (!res.ok) throw new Error("Failed to fetch nodes")
                 const data = await res.json()
 
@@ -473,7 +473,7 @@ function FreeNodeLinkContent() {
             // Determine the base URL: prefer sslHost (https), fallback to standard host:port (http)
             const baseUrl = node.sslHost ? `https://${node.sslHost.host}:${node.sslHost.port}` : `http://${node.host}:${node.port}`
 
-            const apiUrl = `/api/nodelink?url=${encodeURIComponent(baseUrl)}&password=${encodeURIComponent(node.password)}`
+            const apiUrl = `/api/nodelink?url=${encodeURIComponent(baseUrl)}&password=${encodeURIComponent(node.password)}&t=${new Date().getTime()}`
 
             const res = await fetch(apiUrl)
             const data = await res.json()
