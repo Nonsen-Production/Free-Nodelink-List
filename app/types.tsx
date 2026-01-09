@@ -60,7 +60,10 @@ export interface NodeConfig {
   port: string
   password: string
   secure: boolean
-  sslHost?: string
+  sslHost?: {
+    host: string
+    port: number
+  }
   author?: {
     name: string
     website?: string

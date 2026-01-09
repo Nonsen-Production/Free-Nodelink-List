@@ -63,6 +63,23 @@ To view the complete list of available nodes, visit:
 
 [Free NodeLink](http://free-nodelink.nyxbot.app)
 
+### Custom Widget
+
+You can also use this widget **even if your node is not listed** on our site!
+
+Simply provide your node details via query parameters:
+
+- `host` (Required): Your node hostname/IP
+- `port`: Your node port (default: 2333)
+- `password`: Your node password (default: youshallnotpass)
+- `secure`: Set to `true` for SSL/HTTPS connection (default: false)
+
+#### Custom Widget Example
+
+```markdown
+![My Custom Node](http://free-nodelink.nyxbot.app/api/nodes/widget?host=my-cool-node.com&port=443&secure=true&password=mypassword)
+```
+
 ---
 
 ## How to Add Your Node to Free NodeLink
@@ -77,6 +94,25 @@ Community contributions are welcome. If you operate a public Lavalink node and w
 4. Always append your node entry to the bottom of the list to preserve ordering and history.
 
 All submitted nodes may be reviewed to ensure they meet basic quality and availability standards.
+
+Example node entry:
+```
+{
+    "title": "Singapore Node 1",
+    "host": "sg1-nodelink.nyxbot.app", // Always no SSL Host, If you having both SSL and Non-SSL Host
+    "port": "3000",
+    "password": "nyxbot.app/support",
+    "secure": false,
+    "sslHost": {
+        "host": "sg1-nodelink-ssl.nyxbot.app",
+        "port": 443
+    }, // Optional put null if you don't have SSL Host
+    "author": {
+        "name": "NYX Project",
+        "website": "https://nyxbot.app"
+    }
+}
+```
 
 ## Host your own NodeLink
 Plese check the [Nodelink](https://nodelink.js.org) section for more information.

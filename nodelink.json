@@ -5,7 +5,10 @@
         "port": "3000",
         "password": "nyxbot.app/support",
         "secure": false,
-        "sslHost": "sg1-nodelink-ssl.nyxbot.app",
+        "sslHost": {
+            "host": "sg1-nodelink-ssl.nyxbot.app",
+            "port": 443
+        },
         "author": {
             "name": "NYX Project",
             "website": "https://nyxbot.app"
@@ -17,7 +20,10 @@
         "port": "3000",
         "password": "nyxbot.app/support",
         "secure": false,
-        "sslHost": "sg2-nodelink-ssl.nyxbot.app",
+        "sslHost": {
+            "host": "sg2-nodelink-ssl.nyxbot.app",
+            "port": 443
+        },
         "author": {
             "name": "NYX Project",
             "website": "https://nyxbot.app"

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 
 export const dynamic = "force-dynamic"
 
-const NODES_URL = "https://github.com/Tapao-NonSen/Tapao-NonSen/blob/main/nodelink.json?raw=true"
+const NODES_URL = "https://github.com/Tapao-NonSen/Free-Nodelink-List/blob/main/nodelink.json?raw=true"
 
 // Helper to fetch all nodes
 async function getNodes() {
@@ -12,11 +12,7 @@ async function getNodes() {
             headers: { Accept: "application/json" },
         })
         if (!res.ok) return []
-        let text = await res.text()
-        text = text.trim()
-        if (text.endsWith(",")) text = text.slice(0, -1)
-        if (!text.startsWith("[")) text = `[${text}]`
-        return JSON.parse(text)
+        return await res.json()
     } catch (e) {
         console.error("Failed to fetch nodes", e)
         return []
@@ -99,20 +95,40 @@ export async function GET(request: Request) {
     }
 
     // --- Specific Node Card ---
-    const node = nodes.find((n: any) => n.host === hostQuery || n.sslHost === hostQuery)
+    let node = nodes.find((n: any) => n.host === hostQuery || (typeof n.sslHost === 'string' ? n.sslHost === hostQuery : n.sslHost?.host === hostQuery))
 
     if (!node) {
-        const content = `
-            <text x="200" y="90" text-anchor="middle" class="title" fill="#ef4444">Node Not Found</text>
-        `
-        return new NextResponse(generateSvg(content), {
-            headers: { "Content-Type": "image/svg+xml" },
-        })
+        if (!hostQuery) {
+            const content = `
+                <text x="200" y="90" text-anchor="middle" class="title" fill="#ef4444">Node Not Found</text>
+            `
+            return new NextResponse(generateSvg(content), {
+                headers: { "Content-Type": "image/svg+xml" },
+            })
+        }
+
+        // Custom node from params
+        const port = searchParams.get("port")
+        const password = searchParams.get("password")
+        const secure = searchParams.get("secure") === "true"
+
+        node = {
+            title: hostQuery,
+            host: hostQuery,
+            port: port || "2333",
+            password: password || "youshallnotpass",
+            secure: secure,
+            sslHost: secure ? { host: hostQuery, port: port ? parseInt(port) : 443 } : null
+        }
     }
 
+    const sslHostStr = typeof node.sslHost === 'string' ? node.sslHost : node.sslHost?.host
+    const sslPort = typeof node.sslHost === 'object' ? node.sslHost?.port : 443
+
     const protocol = node.sslHost ? "https" : "http"
-    const host = node.sslHost || node.host
-    const baseUrl = `${protocol}://${host}:${node.port}`
+    const host = sslHostStr || node.host
+    const port = node.sslHost ? sslPort : node.port
+    const baseUrl = `${protocol}://${host}:${port}`
 
     // Fetch live stats
     const stats = await getLiveStats(baseUrl, node.password)
@@ -127,9 +143,13 @@ export async function GET(request: Request) {
     const uptime = stats?.uptime ? Math.floor(stats.uptime / 3600000) + "h" : "0h"
 
     const content = `
+        <image href="http://free-nodelink.nyxbot.app/hero-banner.png" x="0" y="0" width="400" height="200" preserveAspectRatio="xMidYMid slice" opacity="0.2" clip-path="url(#clip)" />
+        <clipPath id="clip">
+            <rect width="400" height="200" rx="12" />
+        </clipPath>
         <g transform="translate(24, 24)">
             <text x="0" y="14" class="title">${node.title || node.name || "Unknown Node"}</text>
-            <text x="0" y="34" class="sub">${host}:${node.port}</text>
+            <text x="0" y="34" class="sub">${host}:${port}</text>
             
             <line x1="0" y1="56" x2="352" y2="56" stroke="white" stroke-opacity="0.1" />
 
@@ -164,7 +184,7 @@ export async function GET(request: Request) {
         <circle cx="366" cy="24" r="4" fill="${statusColor}" class="dot"/>
     `
 
-    return new NextResponse(generateSvg(content), {
+    return new NextResponse(generateSvg(content, 400, 200), {
         headers: { "Content-Type": "image/svg+xml", "Cache-Control": "no-cache, max-age=60" },
     })
 }

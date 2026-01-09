@@ -80,7 +80,7 @@ const NodeCard = ({
     const [expanded, setExpanded] = useState(false)
 
     const isOnline = info?.isNodelink === true
-    const currentHost = showSSL && config.sslHost ? config.sslHost : config.host
+    const currentHost = showSSL && config.sslHost ? config.sslHost.host : config.host
     const currentSecure = showSSL && config.sslHost ? true : config.secure
 
     const formatUptime = (ms: number) => {
@@ -468,7 +468,7 @@ function FreeNodeLinkContent() {
 
         try {
             // Determine the base URL: prefer sslHost (https), fallback to standard host:port (http)
-            const baseUrl = node.sslHost ? `https://${node.sslHost}` : `http://${node.host}:${node.port}`
+            const baseUrl = node.sslHost ? `https://${node.sslHost.host}:${node.sslHost.port}` : `http://${node.host}:${node.port}`
 
             const apiUrl = `/api/nodelink?url=${encodeURIComponent(baseUrl)}&password=${encodeURIComponent(node.password)}`
 
