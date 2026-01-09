@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 
-const NODES_URL = "https://github.com/Tapao-NonSen/Tapao-NonSen/blob/main/nodelink.json?raw=true"
+const NODES_URL = "https://github.com/Tapao-NonSen/Free-Nodelink-List/blob/main/nodelink.json?raw=true"
 
 export async function GET() {
     try {
@@ -15,16 +15,7 @@ export async function GET() {
             throw new Error(`Failed to fetch nodes: ${res.status}`)
         }
 
-        let text = await res.text()
-        text = text.trim()
-        if (text.endsWith(",")) {
-            text = text.slice(0, -1)
-        }
-        if (!text.startsWith("[")) {
-            text = `[${text}]`
-        }
-
-        const nodes = JSON.parse(text)
+        const nodes = await res.json()
 
         return NextResponse.json(nodes)
     } catch (error) {
