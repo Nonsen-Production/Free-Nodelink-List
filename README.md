@@ -28,6 +28,7 @@ Developers can freely select the node that best matches their geographic locatio
 Free NodeLink provides a live status widget that allows developers to display real-time node information directly on their website, README files, or project documentation. The widget visually reflects the current availability and operational status of a selected node, enabling quick reliability checks without manual monitoring.
 
 Widgets are automatically generated and continuously updated, requiring no additional setup beyond embedding the provided URL.
+> STATS ONLY SUPPORT HTTPS NODE
 
 ### Widget Usage
 
