@@ -831,15 +831,15 @@ function FreeNodeLinkContent() {
                     </Link>
 
                     <Link
-                        href="https://nyxbot.app/support"
+                        href="https://github.com/Tapao-NonSen/Free-Nodelink-List/tree/main?tab=readme-ov-file#how-to-add-your-node-to-free-nodelink"
                         target="_blank"
                         className="group p-5 rounded-xl bg-[#08080c] border border-white/[0.06] hover:border-violet-500/30 transition-all"
                     >
                         <Icons.Mix className="w-5 h-5 text-violet-400 mb-2" />
-                        <h3 className="font-bold text-white mb-1">Host with Us</h3>
+                        <h3 className="font-bold text-white mb-1">Add your node</h3>
                         <p className="text-xs text-stone-500 mb-3">Have spare resources? Contribute to the community by hosting a public node.</p>
                         <span className="text-xs font-medium text-white flex items-center gap-1 group-hover:text-violet-400 transition-colors">
-                            Contact Us <ArrowRight className="w-3 h-3" />
+                            Add Node <ArrowRight className="w-3 h-3" />
                         </span>
                     </Link>
                 </div>

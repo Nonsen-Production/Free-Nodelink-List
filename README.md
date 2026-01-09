@@ -50,12 +50,14 @@ You can embed the widget in Markdown as shown below:
 ```markdown
 ![Node Widget](http://free-nodelink.nyxbot.app/api/nodes/widget?host=sg1-nodelink.nyxbot.app)
 ```
+![Node Widget](http://free-nodelink.nyxbot.app/api/nodes/widget?host=sg1-nodelink.nyxbot.app)
 
 A general widget showing the overall node list status is also available:
 
 ```
 ![Widget](http://free-nodelink.nyxbot.app/api/nodes/widget)
 ```
+![Widget](http://free-nodelink.nyxbot.app/api/nodes/widget)
 
 To view the complete list of available nodes, visit:
 
@@ -75,6 +77,9 @@ Community contributions are welcome. If you operate a public Lavalink node and w
 4. Always append your node entry to the bottom of the list to preserve ordering and history.
 
 All submitted nodes may be reviewed to ensure they meet basic quality and availability standards.
+
+## Host your own NodeLink
+Plese check the [Nodelink](https://nodelink.js.org) section for more information.
 
 ---
 
