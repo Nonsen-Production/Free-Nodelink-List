@@ -1,0 +1,38 @@
+[
+    {
+        "title": "Singapore Node 1",
+        "host": "sg1-nodelink.nyxbot.app",
+        "port": "3000",
+        "password": "nyxbot.app/support",
+        "secure": false,
+        "sslHost": "sg1-nodelink-ssl.nyxbot.app",
+        "author": {
+            "name": "NYX Project",
+            "website": "https://nyxbot.app"
+        }
+    },
+    {
+        "title": "Singapore Node 2",
+        "host": "sg2-nodelink.nyxbot.app",
+        "port": "3000",
+        "password": "nyxbot.app/support",
+        "secure": false,
+        "sslHost": "sg2-nodelink-ssl.nyxbot.app",
+        "author": {
+            "name": "NYX Project",
+            "website": "https://nyxbot.app"
+        }
+    },
+    {
+        "title": "Frankfurt Node 1",
+        "host": "fr1-nodelink.nyxbot.app",
+        "port": "3000",
+        "password": "nyxbot.app/support",
+        "secure": false,
+        "sslHost": null,
+        "author": {
+            "name": "NYX Project",
+            "website": "https://nyxbot.app"
+        }
+    }
+]
