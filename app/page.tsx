@@ -514,7 +514,7 @@ function FreeNodeLinkContent() {
     useEffect(() => {
         const fetchAds = async () => {
             try {
-                const adsResponse = await fetch("https://nyxbot.app/api/slice")
+                const adsResponse = await fetch("https://nyxbot.app/api/slice?t=" + new Date().getTime())
                 if (!adsResponse.ok) throw new Error("Failed to fetch ads")
                 const rawAdsData = await adsResponse.json()
                 let transformedAds: Ad[] = []
