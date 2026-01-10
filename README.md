@@ -1,4 +1,6 @@
 # Free NodeLink
+![](https://i.imgur.com/S2Psl6z.png)
+![](https://api.visitorbadge.io/api/VisitorHit?user=tapao-nonsen&repo=free-nodelink-list&countColor=%237B1E7A)
 
 ## What is Free NodeLink?
 
