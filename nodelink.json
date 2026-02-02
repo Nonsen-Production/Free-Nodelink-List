@@ -40,5 +40,20 @@
             "name": "NYX Project",
             "website": "https://nyxbot.app"
         }
+    },
+    {
+        "title": "Lavalink v3",
+        "host": "lava-v3.millohost.my.id",
+        "port": "443",
+        "password": "https://discord.gg/mjS5J2K3ep",
+        "secure": true,
+        "sslHost": {
+            "host": "lava-v3.millohost.my.id",
+            "port": 443
+        },
+        "author": {
+            "name": "AneFaiz.Studios",
+            "website": "https://millobotlist.tech"
+        }
     }
 ]
