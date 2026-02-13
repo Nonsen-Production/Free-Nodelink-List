@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 
-const NODES_URL = "https://github.com/Tapao-NonSen/Free-Nodelink-List/blob/main/nodelink.json?raw=true"
+const NODES_URL = "https://raw.githubusercontent.com/Tapao-NonSen/Free-Nodelink-List/refs/heads/main/nodelink.json"
 
 export async function GET() {
     try {
