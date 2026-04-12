@@ -43,10 +43,10 @@
     },
     {
         "title": "TriniumHost BR 01",
-        "host": "nodelink.triniumhost.com",
-        "port": "80",
+        "host": "lavalink.triniumhost.com",
+        "port": "9008",
         "password": "free",
-        "secure": true,
+        "secure": false,
         "sslHost": {
             "host": "nodelink.triniumhost.com",
             "port": 443
@@ -58,10 +58,10 @@
     },
     {
         "title": "TriniumHost BR 02",
-        "host": "nodelink-02.triniumhost.com",
-        "port": "80",
+        "host": "lavalink.triniumhost.com",
+        "port": "6000",
         "password": "trinium",
-        "secure": true,
+        "secure": false,
         "sslHost": {
             "host": "nodelink-02.triniumhost.com",
             "port": 443
