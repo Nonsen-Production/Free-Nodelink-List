@@ -70,5 +70,21 @@
             "name": "TriniumHost",
             "website": "https://triniumhost.com"
         }
-    }
+    },
+     {
+        "title": "TEAM RRZ HK",
+         "host": "lavalink2.teamrrz.qzz.io",
+         "port": "80",
+         "password": "https://linktr.ee/teamrrz",
+         "secure": false,
+         "sslHost": {
+             "host": "lavalink2.teamrrz.qzz.io",
+             "port": 443
+         },
+         "author": {
+             "name": "Team RRZ",
+             "website": "https:/zenovalab.online"
+       }
+     }                                                                
+    
 ]
