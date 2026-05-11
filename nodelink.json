@@ -75,7 +75,7 @@
         "title": "TEAM RRZ HK",
          "host": "lavalink2.teamrrz.qzz.io",
          "port": "80",
-         "password": "https://linktr.ee/teamrrz",
+         "password": "linktr.ee/teamrrz",
          "secure": false,
          "sslHost": {
              "host": "lavalink2.teamrrz.qzz.io",
@@ -83,7 +83,7 @@
          },
          "author": {
              "name": "Team RRZ",
-             "website": "https:/zenovalab.online"
+             "website": "https://zenovalab.online"
        }
      }                                                                
     
