@@ -70,5 +70,65 @@
             "name": "TriniumHost",
             "website": "https://triniumhost.com"
         }
+    },
+    {
+        "title": "Nazha Main (US)",
+        "host": "lavalink.nazha.online",
+        "port": "443",
+        "password": "nazhafreelava",
+        "secure": true,
+        "sslHost": {
+            "host": "lavalink.nazha.online",
+            "port": 443
+        },
+        "author": {
+            "name": "Nazha",
+            "website": "https://github.com/knownasrazi/nazha-free-lavalink"
+        }
+    },
+    {
+        "title": "Nazha Singapore 1",
+        "host": "sg-1.nazha.online",
+        "port": "443",
+        "password": "https://discord.gg/XeSCnk57ZF",
+        "secure": true,
+        "sslHost": {
+            "host": "sg-1.nazha.online",
+            "port": 443
+        },
+        "author": {
+            "name": "Nazha",
+            "website": "https://github.com/knownasrazi/nazha-free-lavalink"
+        }
+    },
+    {
+        "title": "Nazha Singapore 2",
+        "host": "sg-2.nazha.online",
+        "port": "443",
+        "password": "https://discord.gg/XeSCnk57ZF",
+        "secure": true,
+        "sslHost": {
+            "host": "sg-2.nazha.online",
+            "port": 443
+        },
+        "author": {
+            "name": "Nazha",
+            "website": "https://github.com/knownasrazi/nazha-free-lavalink"
+        }
+    },
+    {
+        "title": "Nazha Singapore 3",
+        "host": "sg-3.nazha.online",
+        "port": "443",
+        "password": "https://discord.gg/XeSCnk57ZF",
+        "secure": true,
+        "sslHost": {
+            "host": "sg-3.nazha.online",
+            "port": 443
+        },
+        "author": {
+            "name": "Nazha",
+            "website": "https://github.com/knownasrazi/nazha-free-lavalink"
+        }
     }
 ]
