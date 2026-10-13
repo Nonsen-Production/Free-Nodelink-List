@@ -70,5 +70,20 @@
             "name": "TriniumHost",
             "website": "https://triniumhost.com"
         }
+    },
+    {
+        "title": "Nazha Main (US)",
+        "host": "lavalink.nazha.online",
+        "port": "443",
+        "password": "nazhafreelava",
+        "secure": true,
+        "sslHost": {
+            "host": "lavalink.nazha.online",
+            "port": 443
+        },
+        "author": {
+            "name": "Nazha",
+            "website": "https://github.com/knownasrazi/nazha-free-lavalink"
+        }
     }
 ]
